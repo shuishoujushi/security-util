@@ -1,0 +1,25 @@
+<project name="shared-service-dev" default="build-jar" basedir="../.">
+<import file="./build-properties.xml"/>
+	
+	<target name="build-clean">
+	    <delete dir="${build.class.dir}"/>
+		<delete dir="${deploy.dir}"/>
+	</target>
+	
+	<target name="build-compile" depends="build-clean">
+	    <mkdir dir="${build.class.dir}"/>
+		<mkdir dir="${deploy.dir}"/>
+	    <javac destdir="${build.class.dir}" source="1.6" target="1.6" nowarn="off" defaultexcludes="on" fork="yes" debug="true">
+	        <src path="${src.dir}"/>
+	    </javac>
+	</target>
+	
+	<target name="build-jar" depends="build-compile">
+	    <jar destfile="${deploy.dir}/security-util.jar">
+	        <zipfileset dir="${build.class.dir}">
+	            <include name="**/*"/>
+	        </zipfileset>
+	    </jar>
+	</target>
+	
+</project>	

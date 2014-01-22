@@ -1,0 +1,7 @@
+<project name="build-properties">
+    
+    <property name="build.class.dir" value="build/class"/>
+    <property name="src.dir" value="src"/>
+    <property name="deploy.dir" value="build/deploy"/>
+    
+</project>
